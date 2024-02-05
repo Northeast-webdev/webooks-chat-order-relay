@@ -1,0 +1,20 @@
+<script>
+  function appendQueryParams(originalUrl, targetUrl) {
+    const queryParamsStartIndex = originalUrl.indexOf('?');
+    
+    if (queryParamsStartIndex !== -1) {
+      const queryParams = originalUrl.slice(queryParamsStartIndex + 1);
+      
+      // Append the extracted query parameters to the target URL
+      targetUrl += (targetUrl.includes('?') ? '&' : '?') + queryParams;
+    }
+  
+    return targetUrl;
+  }
+  
+  const targetUrl = "webooks://order-summary/";
+  const currentUrl = window.location.href;
+  const newUrl = appendQueryParams(currentUrl, targetUrl);
+  
+  window.location.replace(newUrl);
+</script>
